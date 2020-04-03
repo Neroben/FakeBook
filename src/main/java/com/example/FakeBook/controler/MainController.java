@@ -52,11 +52,11 @@ public class MainController {
 
 
             model.addAttribute("filename", resultFilename);
-            return "getimage";
+            return "getImg";
         }
 
 
-        return  "addImage";
+        return  "addImg";
     }
 
 }
