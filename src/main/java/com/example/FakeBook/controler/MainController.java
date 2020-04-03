@@ -36,7 +36,8 @@ public class MainController {
 
     @PostMapping("/addimage")
     public String add(
-            @RequestParam("file")MultipartFile file
+            @RequestParam("file")MultipartFile file,
+            Model model
             ) throws IOException {
         if(file != null && !file.getOriginalFilename().isEmpty()){
             File uploadDir = new File(uploadPath);
@@ -49,6 +50,8 @@ public class MainController {
 
             file.transferTo(new File( uploadDir + "\\" + resultFilename));
 
+
+            model.addAttribute("filename", resultFilename);
             return "getimage";
         }
 
