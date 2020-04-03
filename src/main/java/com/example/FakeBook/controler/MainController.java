@@ -29,12 +29,12 @@ public class MainController {
         return "home";
     }
 
-    /*@GetMapping("/addimage")
+    @GetMapping("/addimage")
     public String addImg(){
         return "addImg";
     }
 
-    /*@PostMapping("/addimage")
+    @PostMapping("/addimage")
     public String add(
             @RequestParam("file")MultipartFile file
             ) throws IOException {
@@ -55,5 +55,5 @@ public class MainController {
 
         return  "addImage";
     }
-*/
+
 }
