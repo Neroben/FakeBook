@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>FakeBook</title>
-</head>
-<body>
+<#import "parts/common.ftlh" as c>
+
+<@c.page>
 <div>
     <a href="/addimage">Upload image</a><br>
     <a href="/addUser">Add new User</a><br>
@@ -12,5 +8,4 @@
     <a href="/editUser">Edit active user</a><br>
     <a href="/statistics">Statistics</a>
 </div>
-</body>
-</html>
+</@c.page>

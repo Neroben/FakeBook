@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>FakeBook</title>
-</head>
-<body>
+<#import "parts/common.ftlh" as c>
+
+<@c.page>
 <form method = "post" enctype="multipart/form-data">
     <input type="file" name="file">
     <button type="submit">Добавить</button>
 </form>
-
-</body>
-</html>
+</@c.page>
