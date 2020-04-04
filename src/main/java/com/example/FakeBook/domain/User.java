@@ -16,6 +16,16 @@ public class User {
     private String name;
     private String password;
 
+    public User() {
+    }
+
+    public User(String email, String name, String password, String urlImage) {
+        this.urlImage = urlImage;
+        this.email = email;
+        this.name = name;
+        this.password = password;
+    }
+
     public String getPassword() {
         return password;
     }
