@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Optional;
+
 
 @Controller
 public class UserController {
@@ -43,6 +45,23 @@ public class UserController {
     @GetMapping("/getUser")
     public String getInf(){
         return "getUser";
+    }
+
+    @PostMapping("/getUser")
+    public String getUser(
+        String id,
+        Model model
+    ){ ;
+        Long num = Long.parseLong(id);
+        Optional<User> user = userRepo.findById(num);
+        if(user.isPresent()) {
+            model.addAttribute("name", user.get().getName());
+            model.addAttribute("email", user.get().getEmail());
+            model.addAttribute("urlImage", user.get().getUrlImage());
+        }
+        else
+            model.addAttribute("name", "Не существует");
+        return "user";
     }
 
 }
