@@ -17,9 +17,6 @@ import java.util.UUID;
 @Controller
 public class MainController {
 
-    @Value("${upload.path}")
-    private String uploadPath;
-
     @Autowired
     private UserRepo userRepo;
 
@@ -29,34 +26,6 @@ public class MainController {
         return "home";
     }
 
-    @GetMapping("/addimage")
-    public String addImg(){
-        return "addImg";
-    }
 
-    @PostMapping("/addimage")
-    public String add(
-            @RequestParam("file")MultipartFile file,
-            Model model
-            ) throws IOException {
-        if(file != null && !file.getOriginalFilename().isEmpty()){
-            File uploadDir = new File(uploadPath);
-
-            if(!uploadDir.exists())
-                uploadDir.mkdir();
-
-            String uuidFile = UUID.randomUUID().toString();
-            String resultFilename = uuidFile + "." + file.getOriginalFilename();
-
-            file.transferTo(new File( uploadDir + "\\" + resultFilename));
-
-
-            model.addAttribute("filename", resultFilename);
-            return "getImg";
-        }
-
-
-        return  "addImg";
-    }
 
 }
