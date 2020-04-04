@@ -58,10 +58,42 @@ public class UserController {
             model.addAttribute("name", user.get().getName());
             model.addAttribute("email", user.get().getEmail());
             model.addAttribute("urlImage", user.get().getUrlImage());
+            if(user.get().isActive())
+                model.addAttribute("active", "Активен");
+            else
+                model.addAttribute("active", "Неактивен");
         }
         else
             model.addAttribute("name", "Не существует");
         return "user";
+    }
+
+    @GetMapping("/editUser")
+    public String editUser(){
+        return "editUser";
+    }
+
+    @PostMapping("/editUser")
+    public String edit(
+            String id,
+            boolean active,
+            Model model
+    ) {
+        Optional<User> user = userRepo.findById(Long.parseLong(id));
+        if (user.isPresent()) {
+            if (user.get().isActive() == active) {
+                model.addAttribute("message", "Активность установлена");
+                return "editUser";
+            }
+            user.get().setActive(active);
+            userRepo.save(user.get());
+            model.addAttribute("message", "Активность изменена");
+            return "editUser";
+        }
+        else{
+            model.addAttribute("message", "Пользователя не существует");
+            return "editUser";
+        }
     }
 
 }

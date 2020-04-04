@@ -4,6 +4,8 @@
 
     ${name?ifExists}<br>
     ${email?ifExists}<br>
+    ${active?ifExists}<br>
     <a href="${urlImage?ifExists}">${urlImage?ifExists}</a>
+
 
 </@c.page>
