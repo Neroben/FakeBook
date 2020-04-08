@@ -86,7 +86,7 @@ public class UserController {
     @PostMapping("/editUser")
     public String edit(
             @RequestParam String id,
-            @RequestParam boolean active,
+            @RequestParam(required = false) boolean active,
             Model model
     ){
         Optional<User> userFromDb = userRepo.findById(Long.parseLong(id));

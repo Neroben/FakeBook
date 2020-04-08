@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Controller
@@ -23,12 +25,12 @@ public class StatisticController {
 
     @PostMapping("/statistics")
     public String viewStatistic(
-            String timestamp,
-            boolean active,
+            @RequestParam String timestamp,
+            @RequestParam(required = false) boolean active,
             Model model
     ){
-
-        List<Statistics> statistic = statisticRepo.findByActive(active);
+        Timestamp now = Timestamp.valueOf(timestamp);
+        List<Statistics> statistic = statisticRepo.findByActiveAndTimestampGreaterThanEqual(active, now);
 
         model.addAttribute("statistic", statistic);
         return "statistic";
