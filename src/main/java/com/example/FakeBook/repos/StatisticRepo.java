@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface StatisticRepo extends JpaRepository<Statistics, Long> {
-    List<Statistics> findByActiveAndTimestampGreaterThanEqual(boolean active, Timestamp now);
+    List<Statistics> findByTimestampGreaterThanEqualOrderByTimestamp(Timestamp now);
 }
