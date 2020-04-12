@@ -1,4 +1,4 @@
-package com.example.FakeBook.config;
+package com.example.FakeBook.сonfiguration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

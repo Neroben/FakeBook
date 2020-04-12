@@ -1,6 +1,6 @@
-package com.example.FakeBook.controler;
+package com.example.FakeBook.controller;
 
-import com.example.FakeBook.Services.StatisticService;
+import com.example.FakeBook.services.StatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

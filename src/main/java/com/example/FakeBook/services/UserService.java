@@ -1,9 +1,9 @@
-package com.example.FakeBook.Services;
+package com.example.FakeBook.services;
 
 import com.example.FakeBook.domain.Statistics;
 import com.example.FakeBook.domain.User;
-import com.example.FakeBook.repos.StatisticRepo;
-import com.example.FakeBook.repos.UserRepo;
+import com.example.FakeBook.repositories.StatisticRepo;
+import com.example.FakeBook.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;

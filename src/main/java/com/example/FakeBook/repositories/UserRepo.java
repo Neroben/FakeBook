@@ -1,4 +1,4 @@
-package com.example.FakeBook.repos;
+package com.example.FakeBook.repositories;
 
 import com.example.FakeBook.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
